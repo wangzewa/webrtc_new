@@ -67,6 +67,8 @@
 
 + (void)setSpeakerphoneOn:(BOOL)enable {
 #if TARGET_OS_IPHONE
+    NSLog(@"speak:%x blue:%x bluea2:%x air:%x  ",AVAudioSessionCategoryOptionDefaultToSpeaker, AVAudioSessionCategoryOptionAllowBluetooth,AVAudioSessionCategoryOptionAllowBluetoothA2DP,AVAudioSessionCategoryOptionAllowAirPlay);
+    NSLog(@"choose:%x",enable ? AVAudioSessionCategoryOptionDefaultToSpeaker :AVAudioSessionCategoryOptionAllowBluetooth | AVAudioSessionCategoryOptionAllowBluetoothA2DP);
     RTCAudioSession *session = [RTCAudioSession sharedInstance];
     [session lockForConfiguration];
     [session setCategory:AVAudioSessionCategoryPlayAndRecord
